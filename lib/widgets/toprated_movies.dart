@@ -62,6 +62,7 @@ class _TrendingMoviesState extends State<TopRatedMovies> {
                           margin: const EdgeInsets.only(left: 20),
                           height: 180,
                           decoration: BoxDecoration(
+                            color: Colors.grey[800],
                             borderRadius: BorderRadius.circular(20),
                             image: DecorationImage(
                               image: NetworkImage(

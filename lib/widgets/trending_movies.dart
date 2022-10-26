@@ -62,6 +62,7 @@ class _TrendingMoviesState extends State<TrendingMovies> {
                     child: Container(
                       height: 180,
                       decoration: BoxDecoration(
+                         color: Colors.grey[800],
                           image: DecorationImage(
                               image: NetworkImage(
                                   'https://image.tmdb.org/t/p/w500' +
