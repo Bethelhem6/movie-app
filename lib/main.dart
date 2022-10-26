@@ -56,7 +56,6 @@ class _HomeState extends State<Home> {
       trendingMovies = pouparResult['results'];
       topRatedMovies = topRatedResults['results'];
       tvShows = tvResults['results'];
-   
     });
   }
 
@@ -72,8 +71,11 @@ class _HomeState extends State<Home> {
       ),
       body: ListView(
         children: [
-          Popular(popular: topRatedMovies),
+          const SizedBox(
+            height: 15,
+          ),
           TopRatedMovies(toprated: trendingMovies),
+          Popular(popular: topRatedMovies),
           TrendingMovies(trending: tvShows),
         ],
       ),
