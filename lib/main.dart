@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.deepPurple,
         ),
-        home: Home());
+        home: const Home());
   }
 }
 
@@ -46,19 +46,17 @@ class _HomeState extends State<Home> {
 
   loadMovies() async {
     TMDB tmdbwithCustomLogo = TMDB(ApiKeys(apiKeys, accessToken),
-        logConfig: ConfigLogger(showErrorLogs: true, showLogs: true));
+        logConfig: const ConfigLogger(showErrorLogs: true, showLogs: true));
 
-    Map trendingResults = await tmdbwithCustomLogo.v3.trending.getTrending();
+    Map pouparResult = await tmdbwithCustomLogo.v3.movies.getPopular();
     Map topRatedResults = await tmdbwithCustomLogo.v3.movies.getTopRated();
     Map tvResults = await tmdbwithCustomLogo.v3.tv.getPopular();
 
     setState(() {
-      trendingMovies = trendingResults['results'];
+      trendingMovies = pouparResult['results'];
       topRatedMovies = topRatedResults['results'];
       tvShows = tvResults['results'];
-      // print(tvShows);
-      print(trendingMovies);
-      // print(topRatedMovies);
+   
     });
   }
 
@@ -67,8 +65,8 @@ class _HomeState extends State<Home> {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        title: Text("Movie App"),
-        backgroundColor: Colors.transparent,
+        title: const Text("Movie App"),
+        backgroundColor: Colors.grey[900],
         centerTitle: true,
         elevation: 0,
       ),

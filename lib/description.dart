@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names, unnecessary_null_comparison
+
 import 'package:flutter/material.dart';
 
 class Description extends StatefulWidget {
@@ -23,48 +25,47 @@ class _DescriptionState extends State<Description> {
       backgroundColor: Colors.black,
       body: ListView(
         children: [
-          Container(
+          SizedBox(
             height: 250,
             child: Stack(
               children: [
                 Positioned(
                   width: MediaQuery.of(context).size.width,
                   height: 250,
-                  child: Container(
-                    child: Image.network(
-                      widget.bannerUrl,
-                      fit: BoxFit.cover,
-                    ),
+                  child: Image.network(
+                    widget.bannerUrl,
+                    fit: BoxFit.cover,
                   ),
                 ),
                 Positioned(
+                  bottom: 10,
                   child: Padding(
                     padding: const EdgeInsets.all(10.0),
                     child: Text(
-                      '⭐ Average rating -' + widget.vote,
-                      style: TextStyle(color: Colors.white, fontSize: 18),
+                      "⭐ Average rating -${widget.vote}",
+                      style: const TextStyle(color: Colors.white, fontSize: 18),
                     ),
                   ),
-                  bottom: 10,
                 )
               ],
             ),
           ),
           Container(
-            padding: EdgeInsets.all(10),
+            padding: const EdgeInsets.all(10),
             child: Text(
+              // ignore: prefer_if_null_operators
               widget.name != null ? widget.name : 'Loading...',
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.orange,
                 fontSize: 25,
               ),
             ),
           ),
           Container(
-            padding: EdgeInsets.all(10),
+            padding: const EdgeInsets.all(10),
             child: Text(
-              "Released on: " + widget.launch_on,
-              style: TextStyle(
+              "Released on: ${widget.launch_on}",
+              style: const TextStyle(
                 color: Colors.orange,
                 fontSize: 15,
               ),
@@ -73,14 +74,14 @@ class _DescriptionState extends State<Description> {
           Row(
             children: [
               Container(
-                padding: EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
                 height: 200,
                 width: 100,
                 child: Image.network(widget.posterUrl),
               ),
               Flexible(
                 child: Container(
-                  padding: EdgeInsets.all(5),
+                  padding: const EdgeInsets.all(5),
                   child: Text(
                     widget.description,
                     style: TextStyle(
